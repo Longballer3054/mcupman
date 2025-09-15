@@ -1,42 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Name</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mike Upman</title>
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- SEO -->
+  <meta name="description" content="Personal site for Mike Upman: about, contact, and projects." />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Mike Upman" />
+  <meta property="og:description" content="Personal site for Mike Upman: about, contact, and projects." />
+  <meta property="og:type" content="website" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Personal Page</h1>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi! I’m Mike, a passionate person who enjoys digging into the details. I enjoy outdoor activites: Golfing, Hiking, and Biking.</p>
-        </section>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Mike Upman</h1>
+      <nav aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+        <ul id="menu" class="menu">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="mylettertoorioles.html">MyLettertoOrioles</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+  <main id="main" class="container flow">
+    <section class="hero">
+      <h2 class="hero-title">Welcome to my page</h2>
+      <p class="hero-subtitle">I enjoy the details and the outdoors: golf, hiking, and biking.</p>
+      <div class="hero-actions">
+        <a class="button" href="mylettertoorioles.html">Read MyLettertoOrioles</a>
+        <a class="button button-ghost" href="#contact">Say hello</a>
+      </div>
+    </section>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+    <section id="about" class="card">
+      <h3>About me</h3>
+      <p>
+        Hi, I am Mike. I work on complex projects and like clear plans that turn into real results.
+        When I am not working you can find me on a trail, a green, or a bike path.
+      </p>
+    </section>
 
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 MCUpman. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+    <section id="contact" class="card">
+      <h3>Contact me</h3>
+      <form id="contact-form" class="form" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+          <small class="error" id="name-error" hidden>Please enter your name.</small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
+          <small class="error" id="email-error" hidden>Please enter a valid email.</small>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <small class="error" id="message-error" hidden>Please enter a message.</small>
+        </div>
+
+        <button type="submit" class="button">Send</button>
+        <p class="success" id="form-success" role="status" aria-live="polite" hidden>
+          Thank you. Your message was received.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">
+      <p>&copy; 2025 MCUpman. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
