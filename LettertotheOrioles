@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyLettertoOrioles — Mike Upman</title>
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="An open letter to the Baltimore Orioles." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Mike Upman</h1>
+      <nav aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+        <ul id="menu" class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mylettertoorioles.html" aria-current="page">MyLettertoOrioles</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container flow">
+    <article class="prose card">
+      <header class="page-header">
+        <h2>MyLettertoOrioles</h2>
+        <p class="muted">An open note from a lifelong Maryland fan.</p>
+      </header>
+
+      <p>Dear Orioles,</p>
+
+      <p>
+        Thank you for the energy and the joy you bring to the city. The club means a lot to
+        me and my family. I would love to see continued focus on player development, strong
+        defense, and real fan access. Game days are better when the park feels like home.
+      </p>
+
+      <p>
+        I am excited for the season ahead and I am ready to cheer. Let us make the next run
+        one to remember.
+      </p>
+
+      <p>With respect,</p>
+      <p>Mike Upman</p>
+
+      <hr class="rule" />
+
+      <section aria-labelledby="ps">
+        <h3 id="ps">Notes</h3>
+        <ul class="checklist">
+          <li>Keep building through the farm system.</li>
+          <li>Lean into fan experience at the park.</li>
+          <li>Celebrate the history and the future in equal measure.</li>
+        </ul>
+      </section>
+    </article>
+
+    <nav class="page-nav">
+      <a class="button" href="index.html">Back to home</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container small">
+      <p>&copy; 2025 MCUpman. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
