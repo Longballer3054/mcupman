@@ -1,28 +1,27 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MCUPMAN — Contact</title>
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
   <meta name="description" content="Get in touch with MCUPMAN." />
   <meta name="theme-color" content="#0f172a" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html">MCUPMAN</a>
+      <a class="brand" href="/">MCUPMAN</a>
       <nav aria-label="Primary">
         <button class="nav-toggle" aria-expanded="false" aria-controls="menu" id="navToggle">Menu</button>
         <ul id="menu" class="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="mylettertoorioles.html">My Letter to Orioles</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/mylettertoorioles.html">My Letter to Orioles</a></li>
+          <li><a href="/contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -32,41 +31,34 @@
     <section class="section">
       <div class="card form-card">
         <h1>Contact me</h1>
-        <p class="muted">Fill the form to send an email. You can also write directly to <a href="mailto:contact@mcupman.com">contact@mcupman.com</a>.</p>
+        <p class="muted">Send a note here or write to <a href="mailto:contact@mcupman.com">contact@mcupman.com</a>.</p>
         <form id="contact-form" class="form" novalidate>
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required />
             <small class="error" id="name-error" hidden>Please enter your name.</small>
           </div>
-
           <div class="field">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
             <small class="error" id="email-error" hidden>Please enter a valid email.</small>
           </div>
-
           <div class="field">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="6" required></textarea>
             <small class="error" id="message-error" hidden>Please enter a message.</small>
           </div>
-
           <button type="submit" class="button">Send</button>
-          <p class="success" id="form-success" role="status" aria-live="polite" hidden>
-            Thanks for your message.
-          </p>
+          <p class="success" id="form-success" role="status" aria-live="polite" hidden>Thanks for your message.</p>
         </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container small">
-      <p>&copy; 2025 MCUPMAN. All rights reserved.</p>
-    </div>
+    <div class="container small"><p>&copy; 2025 MCUPMAN. All rights reserved.</p></div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
