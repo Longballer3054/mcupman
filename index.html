@@ -1,48 +1,44 @@
-
-<!doctype html>
+√<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MCUPMAN — Home</title>
-
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
   <meta name="description" content="Personal site for MCUPMAN: about, projects, photos." />
   <meta name="theme-color" content="#0f172a" />
-
   <meta property="og:title" content="MCUPMAN" />
   <meta property="og:description" content="Personal site for MCUPMAN: about, projects, photos." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/sunset-2.jpg" />
-
-  <link rel="stylesheet" href="style.css" />
+  <meta property="og:image" content="/images/sunset-2.jpg" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="MCUPMAN home">MCUPMAN</a>
+      <a class="brand" href="/">MCUPMAN</a>
       <nav aria-label="Primary">
         <button class="nav-toggle" aria-expanded="false" aria-controls="menu" id="navToggle">Menu</button>
         <ul id="menu" class="menu">
-          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="/" aria-current="page">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="mylettertoorioles.html">My Letter to Orioles</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/mylettertoorioles.html">My Letter to Orioles</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" style="--hero-image:url('images/sunset-2.jpg')">
+    <section class="hero hero-sunset">
       <div class="container hero-inner">
         <h1 class="hero-title">Welcome</h1>
         <p class="hero-subtitle">I enjoy the details, and the outdoors: golf, hiking, and biking.</p>
         <div class="hero-actions">
-          <a class="button" href="mylettertoorioles.html">Read my letter to the Orioles</a>
-          <a class="button button-ghost" href="contact.html">Say hello</a>
+          <a class="button" href="/mylettertoorioles.html">Read my letter to the Orioles</a>
+          <a class="button button-ghost" href="/contact.html">Say hello</a>
         </div>
       </div>
       <div class="hero-overlay" aria-hidden="true"></div>
@@ -58,7 +54,7 @@
           </p>
         </div>
         <figure class="card image-card">
-          <img src="images/shoreline-1.jpg" alt="Rocky Hawaiian shoreline at dusk" loading="lazy" />
+          <img src="/images/shoreline-1.jpg" alt="Rocky Hawaiian shoreline at dusk" loading="lazy" />
         </figure>
       </div>
     </section>
@@ -68,13 +64,13 @@
         <h2>Recent photos from Hawaii</h2>
         <p class="muted">Tap a photo to view it full screen.</p>
         <ul class="gallery">
-          <li><button class="glight" data-src="images/sunset-3.jpg"><img src="images/sunset-3.jpg" alt="Golden sunset over the Pacific" loading="lazy"></button></li>
-          <li><button class="glight" data-src="images/shoreline-2.jpg"><img src="images/shoreline-2.jpg" alt="Shoreline with clouds and lava rock" loading="lazy"></button></li>
-          <li><button class="glight" data-src="images/oahu-1.jpg"><img src="images/oahu-1.jpg" alt="Aerial view of Waikiki and Diamond Head" loading="lazy"></button></li>
-          <li><button class="glight" data-src="images/oahu-2.jpg"><img src="images/oahu-2.jpg" alt="Coastline and reef near Diamond Head" loading="lazy"></button></li>
-          <li><button class="glight" data-src="images/oahu-3.jpg"><img src="images/oahu-3.jpg" alt="Aerial coastline with Diamond Head crater" loading="lazy"></button></li>
-          <li><button class="glight" data-src="images/oahu-4.jpg"><img src="images/oahu-4.jpg" alt="Blue waters and Koko Crater from above" loading="lazy"></button></li>
-          <li><button class="glight" data-src="images/golf.jpg"><img src="images/golf.jpg" alt="Ko Olina golf course fairway" loading="lazy"></button></li>
+          <li><button class="glight" data-src="/images/sunset-3.jpg"><img src="/images/sunset-3.jpg" alt="Golden sunset over the Pacific" loading="lazy"></button></li>
+          <li><button class="glight" data-src="/images/shoreline-2.jpg"><img src="/images/shoreline-2.jpg" alt="Shoreline with clouds and lava rock" loading="lazy"></button></li>
+          <li><button class="glight" data-src="/images/oahu-1.jpg"><img src="/images/oahu-1.jpg" alt="Aerial view of Waikiki and Diamond Head" loading="lazy"></button></li>
+          <li><button class="glight" data-src="/images/oahu-2.jpg"><img src="/images/oahu-2.jpg" alt="Coastline and reef near Diamond Head" loading="lazy"></button></li>
+          <li><button class="glight" data-src="/images/oahu-3.jpg"><img src="/images/oahu-3.jpg" alt="Aerial coastline with Diamond Head crater" loading="lazy"></button></li>
+          <li><button class="glight" data-src="/images/oahu-4.jpg"><img src="/images/oahu-4.jpg" alt="Blue waters and Koko Crater from above" loading="lazy"></button></li>
+          <li><button class="glight" data-src="/images/golf.jpg"><img src="/images/golf.jpg" alt="Ko Olina golf course fairway" loading="lazy"></button></li>
         </ul>
       </div>
     </section>
@@ -88,11 +84,9 @@
 
   <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
     <img id="lightboxImg" alt="Expanded gallery image">
-    <form method="dialog">
-      <button class="close" aria-label="Close viewer">×</button>
-    </form>
+    <form method="dialog"><button class="close" aria-label="Close viewer">×</button></form>
   </dialog>
 
-  <script src="script.js" defer></script>
+  <script src="/script.js" defer></script>
 </body>
 </html>
