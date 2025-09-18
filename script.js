@@ -1,4 +1,3 @@
-
 (function() {
   // Mobile nav
   const toggle = document.getElementById('navToggle');
@@ -10,24 +9,25 @@
     });
   }
 
-  // Gallery lightbox using <dialog>
+  // Lightbox
   const dialog = document.getElementById('lightbox');
   const img = document.getElementById('lightboxImg');
   if (dialog && img) {
     document.querySelectorAll('.glight').forEach(btn => {
       btn.addEventListener('click', () => {
         img.src = btn.getAttribute('data-src');
+        img.alt = btn.querySelector('img')?.alt || "Photo";
         dialog.showModal();
       });
     });
     dialog.addEventListener('click', (e) => {
-      const rect = img.getBoundingClientRect();
-      const inImage = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
-      if (!inImage) dialog.close();
+      const r = img.getBoundingClientRect();
+      const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (!inside) dialog.close();
     });
   }
 
-  // Contact form: simple mailto fallback
+  // Contact form → mailto
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -36,22 +36,17 @@
       const email = document.getElementById('email');
       const message = document.getElementById('message');
 
-      let valid = true;
-      if (!name.value.trim()) { document.getElementById('name-error').hidden = false; valid = false; }
-      else document.getElementById('name-error').hidden = true;
+      let ok = true;
+      const set = (id, show) => document.getElementById(id).hidden = !show;
+      if (!name.value.trim()) { set('name-error', true); ok = false; } else set('name-error', false);
+      if (!email.value.includes('@')) { set('email-error', true); ok = false; } else set('email-error', false);
+      if (!message.value.trim()) { set('message-error', true); ok = false; } else set('message-error', false);
+      if (!ok) return;
 
-      if (!email.value.includes('@')) { document.getElementById('email-error').hidden = false; valid = false; }
-      else document.getElementById('email-error').hidden = true;
-
-      if (!message.value.trim()) { document.getElementById('message-error').hidden = false; valid = false; }
-      else document.getElementById('message-error').hidden = true;
-
-      if (!valid) return;
-
-      const mailto = `mailto:contact@mcupman.com?subject=Website%20message%20from%20${encodeURIComponent(name.value)}&body=${encodeURIComponent(message.value + "\n\nFrom: " + email.value)}`;
+      const mailto = `mailto:contact@mcupman.com?subject=Website%20message%20from%20${encodeURIComponent(name.value)}&body=${encodeURIComponent(message.value + "\\n\\nFrom: " + email.value)}`;
       window.location.href = mailto;
-      const ok = document.getElementById('form-success');
-      if (ok) ok.hidden = false;
+      const success = document.getElementById('form-success');
+      if (success) success.hidden = false;
       form.reset();
     });
   }
