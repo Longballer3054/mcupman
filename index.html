@@ -1,23 +1,20 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MC MANUP</title>
+  <title>MCUPMAN — Home</title>
 
-  <!-- Favicons -->
   <link rel="icon" href="favicon.ico" />
-
-  <!-- SEO -->
-  <meta name="description" content="Personal site for MC MANUP: about, contact, and projects." />
+  <meta name="description" content="Personal site for MCUPMAN: about, projects, photos." />
   <meta name="theme-color" content="#0f172a" />
 
-  <!-- Social -->
-  <meta property="og:title" content="MC MANUP" />
-  <meta property="og:description" content="Personal site for MC MANUP: about, contact, and projects." />
+  <meta property="og:title" content="MCUPMAN" />
+  <meta property="og:description" content="Personal site for MCUPMAN: about, projects, photos." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/sunset-2.jpg" />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,72 +22,76 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <h1 class="brand">MC MANUP</h1>
+      <a class="brand" href="index.html" aria-label="MCUPMAN home">MCUPMAN</a>
       <nav aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu" id="navToggle">Menu</button>
         <ul id="menu" class="menu">
           <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="mylettertoorioles.html">My Letter to Orioles</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main id="main" class="container flow">
-    <section class="hero">
-      <h2 class="hero-title">Welcome to my Page</h2>
-      <p class="hero-subtitle">I enjoy the details and the outdoors: golf, hiking, and biking.</p>
-      <div class="hero-actions">
-        <a class="button" href="mylettertoorioles.html">Read My Letter to Orioles</a>
-        
-        <a class="button button-ghost" href="#contact">Say Hello</a>
+  <main id="main">
+    <section class="hero" style="--hero-image:url('images/sunset-2.jpg')">
+      <div class="container hero-inner">
+        <h1 class="hero-title">Welcome</h1>
+        <p class="hero-subtitle">I enjoy the details, and the outdoors: golf, hiking, and biking.</p>
+        <div class="hero-actions">
+          <a class="button" href="mylettertoorioles.html">Read my letter to the Orioles</a>
+          <a class="button button-ghost" href="contact.html">Say hello</a>
+        </div>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container grid-two">
+        <div class="card">
+          <h2>About me</h2>
+          <p>
+            Hi, I am Mike. I work on complex projects and like clear plans that become real results.
+            When I am not working you can find me on a trail, a green, or a bike path.
+          </p>
+        </div>
+        <figure class="card image-card">
+          <img src="images/shoreline-1.jpg" alt="Rocky Hawaiian shoreline at dusk" loading="lazy" />
+        </figure>
       </div>
     </section>
 
-    <section id="about" class="card">
-      <h3>About me</h3>
-      <p>
-        Hi, I am Mike. I work on complex projects and like clear plans that turn into real results.
-        When I am not working you can find me on a trail, a green, or a bike path.
-      </p>
-    </section>
-
-    <section id="contact" class="card">
-      <h3>Contact me</h3>
-      <form id="contact-form" class="form" novalidate>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required />
-          <small class="error" id="name-error" hidden>Please enter your name.</small>
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
-          <small class="error" id="email-error" hidden>Please enter a valid email.</small>
-        </div>
-
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-          <small class="error" id="message-error" hidden>Please enter a message.</small>
-        </div>
-
-        <button type="submit" class="button">Send</button>
-        <p class="success" id="form-success" role="status" aria-live="polite" hidden>
-          Thank you. Your message was received.
-        </p>
-      </form>
+    <section class="section">
+      <div class="container">
+        <h2>Recent photos from Hawaii</h2>
+        <p class="muted">Tap a photo to view it full screen.</p>
+        <ul class="gallery">
+          <li><button class="glight" data-src="images/sunset-3.jpg"><img src="images/sunset-3.jpg" alt="Golden sunset over the Pacific" loading="lazy"></button></li>
+          <li><button class="glight" data-src="images/shoreline-2.jpg"><img src="images/shoreline-2.jpg" alt="Shoreline with clouds and lava rock" loading="lazy"></button></li>
+          <li><button class="glight" data-src="images/oahu-1.jpg"><img src="images/oahu-1.jpg" alt="Aerial view of Waikiki and Diamond Head" loading="lazy"></button></li>
+          <li><button class="glight" data-src="images/oahu-2.jpg"><img src="images/oahu-2.jpg" alt="Coastline and reef near Diamond Head" loading="lazy"></button></li>
+          <li><button class="glight" data-src="images/oahu-3.jpg"><img src="images/oahu-3.jpg" alt="Aerial coastline with Diamond Head crater" loading="lazy"></button></li>
+          <li><button class="glight" data-src="images/oahu-4.jpg"><img src="images/oahu-4.jpg" alt="Blue waters and Koko Crater from above" loading="lazy"></button></li>
+          <li><button class="glight" data-src="images/golf.jpg"><img src="images/golf.jpg" alt="Ko Olina golf course fairway" loading="lazy"></button></li>
+        </ul>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container small">
-      <p>&copy; 2025 MCUpman. All rights reserved.</p>
+      <p>&copy; 2025 MCUPMAN. All rights reserved.</p>
     </div>
   </footer>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Image viewer">
+    <img id="lightboxImg" alt="Expanded gallery image">
+    <form method="dialog">
+      <button class="close" aria-label="Close viewer">×</button>
+    </form>
+  </dialog>
 
   <script src="script.js" defer></script>
 </body>

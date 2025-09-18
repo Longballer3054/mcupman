@@ -1,42 +1,58 @@
-// simple responsive menu
-const toggle = document.querySelector('.nav-toggle');
-const menu = document.querySelector('#menu');
 
-if (toggle && menu) {
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('show');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-}
+(function() {
+  // Mobile nav
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
 
-// contact form validation and friendly success
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  // Gallery lightbox using <dialog>
+  const dialog = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  if (dialog && img) {
+    document.querySelectorAll('.glight').forEach(btn => {
+      btn.addEventListener('click', () => {
+        img.src = btn.getAttribute('data-src');
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener('click', (e) => {
+      const rect = img.getBoundingClientRect();
+      const inImage = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if (!inImage) dialog.close();
+    });
+  }
 
-    const name = form.querySelector('#name');
-    const email = form.querySelector('#email');
-    const message = form.querySelector('#message');
+  // Contact form: simple mailto fallback
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
 
-    const nameError = document.getElementById('name-error');
-    const emailError = document.getElementById('email-error');
-    const messageError = document.getElementById('message-error');
-    const success = document.getElementById('form-success');
+      let valid = true;
+      if (!name.value.trim()) { document.getElementById('name-error').hidden = false; valid = false; }
+      else document.getElementById('name-error').hidden = true;
 
-    // reset state
-    [nameError, emailError, messageError, success].forEach(el => el && (el.hidden = true));
+      if (!email.value.includes('@')) { document.getElementById('email-error').hidden = false; valid = false; }
+      else document.getElementById('email-error').hidden = true;
 
-    let valid = true;
+      if (!message.value.trim()) { document.getElementById('message-error').hidden = false; valid = false; }
+      else document.getElementById('message-error').hidden = true;
 
-    if (!name.value.trim()) { nameError.hidden = false; valid = false; }
-    if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) { emailError.hidden = false; valid = false; }
-    if (!message.value.trim()) { messageError.hidden = false; valid = false; }
+      if (!valid) return;
 
-    if (!valid) return;
-
-    // If you want actual email delivery, wire this to a form service
-    // For now, show a success message and clear the fields
-    success.hidden = false;
-    form.reset();
-  });
+      const mailto = `mailto:contact@mcupman.com?subject=Website%20message%20from%20${encodeURIComponent(name.value)}&body=${encodeURIComponent(message.value + "\n\nFrom: " + email.value)}`;
+      window.location.href = mailto;
+      const ok = document.getElementById('form-success');
+      if (ok) ok.hidden = false;
+      form.reset();
+    });
+  }
+})();
