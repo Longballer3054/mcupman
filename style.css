@@ -12,6 +12,8 @@
   --shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
+.hero-sunset { background: center/cover no-repeat url("/images/sunset-2.jpg"); }
+
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
@@ -20,6 +22,7 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: radial-gradient(1200px 800px at 10% -10%, #14213a 0%, var(--bg) 35%) fixed;
+  
 }
 
 a { color: var(--brand); text-decoration: none; }
