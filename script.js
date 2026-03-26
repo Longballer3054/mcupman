@@ -367,6 +367,311 @@ document.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("hashchange", router);
+router();      "Try it now is one of the most dangerous phrases in a delivery cycle.",
+      "Early warning sign: fixes happening in chat instead of in the system.",
+      "Recurring issues are rarely new problems. They are old problems that were never documented."
+    ],
+    takeaway:
+      "If the fix is not tracked, explained, and documented, it is not a fix. It is a temporary reset waiting to fail again."
+  },
+
+  "full-steam": {
+    category: "Post Launch",
+    readTime: "5 min read",
+    title: "Full Steam",
+    lyric: "I’m gonna keep it going, keep it going full steam",
+    artist: "Lyric reference",
+    intro:
+      "Every launch comes with a plan. There is a go live date, a support model, and a clean assumption that Professional Services will stay engaged for two to three weeks post launch.",
+    story: [
+      "Just enough time to stabilize. Just enough time to resolve minor issues. Just enough time to hand things off cleanly. That is the plan.",
+      "It almost never works that way.",
+      "The system goes live. At first, things look manageable. Then the tickets start. One becomes five. Five becomes twenty. Twenty becomes a list that no one wants to read all the way through.",
+      "Some are real defects. Some are configuration gaps. Some are edge cases that were never tested. Some are things that worked before, but do not anymore.",
+      "Hypercare stretches. Week two becomes week four. Week four quietly turns into something open ended."
+    ],
+    wrong: [
+      "The timeline was fixed, but reality was not.",
+      "The assumption was that the system would be mostly stable at launch with only minor issues remaining.",
+      "There was no meaningful transition strategy between Professional Services, Support, and Customer Success.",
+      "Professional Services slowly became permanent support."
+    ],
+    different: [
+      "Define transition as a phase, not a moment.",
+      "Adjust timelines based on complexity, client size, integrations, and issue volume.",
+      "Use data to define readiness instead of transitioning based on time alone.",
+      "Create overlap where Support and Customer Success ramp up while Professional Services is still actively involved in troubleshooting."
+    ],
+    notes: [
+      "Hypercare always looks shorter on paper than it does in practice.",
+      "Early warning sign: ticket volume increases after go live instead of stabilizing.",
+      "A clean handoff is not about timing. It is about readiness."
+    ],
+    takeaway:
+      "If transition is based on a date instead of readiness, Professional Services does not exit. It just slowly becomes support."
+  }
+};
+
+function renderHomePage() {
+  return `
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">MCUPMAN • personal and professional</p>
+          <h1>
+            Lessons from the field.
+            <span class="muted">Life outside the work.</span>
+          </h1>
+          <p class="hero-subhead">
+            A 50/50 mix of execution lessons, personal perspective, records, travel, outdoor moments, and the stories that shape how I think about work and life.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="#articles">Read Articles</a>
+            <a class="btn btn-secondary" href="#about">About Mike</a>
+          </div>
+        </div>
+
+        <div class="hero-brand-panel reveal">
+          <div class="hero-brand-top">
+            <div class="hero-brand-logo">MU</div>
+            <div>
+              <p class="eyebrow">Brand mark</p>
+              <h2>Make the logo part of the site, not an afterthought.</h2>
+            </div>
+          </div>
+          <p class="hero-brand-copy">
+            The identity should feel more like a stamp on a journal than a tiny decorative icon in the corner.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section photo-strip">
+      <div class="container">
+        <div class="photo-grid">
+          <div class="photo-card reveal">
+            <div class="photo-card-content">
+              <p class="photo-card-label">Personal</p>
+              <h3 class="photo-card-title">Records and a nightcap</h3>
+              <p class="photo-card-text">Slow it down. Put something good on. Let the noise fall off for a minute.</p>
+            </div>
+          </div>
+
+          <div class="photo-card reveal">
+            <div class="photo-card-content">
+              <p class="photo-card-label">Travel</p>
+              <h3 class="photo-card-title">New places and better stories</h3>
+              <p class="photo-card-text">Part of the fun is the food. The other part is everything that happens around it.</p>
+            </div>
+          </div>
+
+          <div class="photo-card reveal">
+            <div class="photo-card-content">
+              <p class="photo-card-label">Outdoors</p>
+              <h3 class="photo-card-title">Golf, hiking, and outside air</h3>
+              <p class="photo-card-text">A reminder that not every good hour needs a screen attached to it.</p>
+            </div>
+          </div>
+
+          <div class="photo-card reveal">
+            <div class="photo-card-content">
+              <p class="photo-card-label">Perspective</p>
+              <h3 class="photo-card-title">Life away from the laptop</h3>
+              <p class="photo-card-text">The personal side should feel as intentional as the professional one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">From the field</p>
+            <h2 class="section-title">Articles and lessons learned</h2>
+          </div>
+          <a class="section-header-link" href="#about">See the personal side</a>
+        </div>
+
+        <div class="article-grid">
+          <article class="article-card reveal">
+            <p class="article-category">Leadership</p>
+            <h3>The Meeting That Should Have Been an Email</h3>
+            <p class="article-excerpt">A breakdown of how unclear ownership and undefined outcomes turn meetings into delay.</p>
+            <p class="article-meta">4 min read</p>
+            <button class="article-link" data-article="meeting">Read Article</button>
+          </article>
+
+          <article class="article-card reveal">
+            <p class="article-category">Execution</p>
+            <h3>Try It Now</h3>
+            <p class="article-excerpt">Why quick fixes without tracking and root cause lead to the same problems showing up again.</p>
+            <p class="article-meta">4 min read</p>
+            <button class="article-link" data-article="try-it-now">Read Article</button>
+          </article>
+
+          <article class="article-card reveal">
+            <p class="article-category">Post Launch</p>
+            <h3>Full Steam</h3>
+            <p class="article-excerpt">How unrealistic hypercare timelines turn Professional Services into long term support.</p>
+            <p class="article-meta">5 min read</p>
+            <button class="article-link" data-article="full-steam">Read Article</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container split-grid">
+        <div class="split-heading">
+          <p class="eyebrow">About</p>
+          <h2>
+            Operator by trade.
+            <span class="muted">Human outside of it.</span>
+          </h2>
+        </div>
+
+        <div class="split-copy">
+          <p class="lead">The goal for this site is balance. Half field notes, half personal identity.</p>
+          <p>
+            I work at the intersection of operations, technology, and execution, helping companies turn complex ideas into systems that actually function in the real world.
+          </p>
+          <p>
+            Outside of work, I like to slow things down. Records, travel, a drink at the end of the day, golf, hiking, and the parts of life that matter more than another calendar invite.
+          </p>
+          <p>
+            This should feel less like a basic professional profile and more like a modern personal journal with a point of view.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Say hello or send a story.</h2>
+          <p>
+            This should feel personal, approachable, and a little more like the end of a magazine feature than a corporate footer.
+          </p>
+          <div class="button-row">
+            <a class="btn btn-primary" href="mailto:hello@mcupman.com">Email Mike</a>
+            <a class="btn btn-secondary" href="#articles">Read Articles</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderArticle(article) {
+  return `
+    <article class="article-view">
+      <p class="article-category">${article.category}</p>
+      <h1 id="article-title">${article.title}</h1>
+      <p class="read-time">${article.readTime}</p>
+
+      <div class="lyric-box">
+        <p class="box-label">Opening lyric</p>
+        <p class="lyric-text">“${article.lyric}”</p>
+        <p class="lyric-artist">${article.artist}</p>
+      </div>
+
+      <section>
+        <p class="article-lead">${article.intro}</p>
+        ${article.story.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+      </section>
+
+      <section class="article-block">
+        <h2>What went wrong</h2>
+        <ul>
+          ${article.wrong.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      </section>
+
+      <section class="article-block">
+        <h2>What could have been done differently</h2>
+        <ul>
+          ${article.different.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      </section>
+
+      <section class="article-block field-notes">
+        <h2>Field Notes</h2>
+        <ul>
+          ${article.notes.map((item) => `<li>${item}</li>`).join("")}
+        </ul>
+      </section>
+
+      <section class="takeaway-box">
+        <p class="box-label">One Line Takeaway</p>
+        <p>${article.takeaway}</p>
+      </section>
+    </article>
+  `;
+}
+
+function openArticle(articleKey) {
+  const article = articles[articleKey];
+  if (!article) return;
+
+  const modal = document.getElementById("article-modal");
+  const modalContent = document.getElementById("modal-content");
+
+  modalContent.innerHTML = renderArticle(article);
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeArticle() {
+  const modal = document.getElementById("article-modal");
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function bindArticleButtons() {
+  document.querySelectorAll(".article-link").forEach((button) => {
+    button.addEventListener("click", () => {
+      openArticle(button.dataset.article);
+    });
+  });
+}
+
+function bindRevealAnimation() {
+  const revealItems = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+}
+
+function router() {
+  const app = document.getElementById("app");
+  app.innerHTML = renderHomePage();
+  bindArticleButtons();
+  bindRevealAnimation();
+}
+
+document.getElementById("modal-close").addEventListener("click", closeArticle);
+document.getElementById("modal-overlay").addEventListener("click", closeArticle);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeArticle();
+});
+
+window.addEventListener("hashchange", router);
 router();      <p>Hypercare always lasts longer than planned.</p>
 
       <div class="takeaway">
