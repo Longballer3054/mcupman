@@ -1,70 +1,96 @@
-const articles = {
-  meeting: {
-    category: "Leadership",
-    readTime: "4 min read",
+const articles = [
+  {
+    slug: "meeting",
     title: "The Meeting That Should Have Been an Email",
-    lyric: "You say you want a revolution… well, you know",
-    artist: "The Beatles",
-    intro:
-      "It started like most bad meetings do. No agenda. Too many people. Just enough urgency to make everyone believe it had to happen.",
-    story: [
-      "The invite said quick sync, which is usually the first sign something is about to take longer than it should and accomplish less than expected.",
-      "By minute ten, the updates began. Not decisions. Not alignment. Just updates.",
-      "By minute twenty, the conversation drifted. Someone raised a new concern. Another added context. Another tried to connect it to something from last week that nobody fully remembered.",
-      "By minute thirty, the room was active. It felt productive. It was not."
-    ],
-    wrong: [
-      "No one owned the meeting in a real sense.",
-      "There was no defined purpose.",
-      "Too many perspectives without structure created noise instead of clarity.",
-      "The meeting existed because writing felt harder."
-    ],
-    different: [
-      "Start with the outcome before the meeting is even scheduled.",
-      "Reduce the room to only the people required to decide, approve, or execute.",
-      "Send context ahead of time so the meeting can be used for direction, not discovery.",
-      "If it can be written clearly, it should not be a meeting."
-    ],
-    notes: [
-      "This pattern shows up when visibility is mistaken for progress.",
-      "Early warning sign: quick sync with no agenda.",
-      "Meetings without ownership do not fail loudly. They fail quietly by consuming time and producing nothing."
-    ],
-    takeaway:
-      "If a meeting has no owner and no defined outcome, it is not alignment. It is delay with calendar invites."
+    content: "Meetings fail when there is no owner, no outcome, and too many voices."
   },
-
-  "try-it-now": {
-    category: "Execution",
-    readTime: "4 min read",
+  {
+    slug: "try-it-now",
     title: "Try It Now",
-    lyric: "Is there gas in the car? Yes, there’s gas in the car",
-    artist: "Steely Dan",
-    intro:
-      "A feature gets deployed. A fix is pushed. Something simple is ready to be tested. You try it. It does not work.",
-    story: [
-      "So you do what most people do. You send a quick message, make a call, or reach out directly because it feels like the fastest path.",
-      "A few minutes later, the response comes back: Try it now.",
-      "You test again. This time it works. That should feel like progress, but it is not.",
-      "No one explained what was wrong. No one documented what changed. No one captured why it broke in the first place. The only thing that happened was the symptom disappeared.",
-      "The right move was to create a bug ticket so the issue could be tracked, tied to a release, and understood later. Instead, the easy path won."
-    ],
-    wrong: [
-      "The process was bypassed in favor of speed.",
-      "There was no documented root cause.",
-      "There was no ticket, no history, and no pattern tracking.",
-      "The symptom disappeared, but the problem was never really fixed."
-    ],
-    different: [
-      "Create the ticket anyway, even if the issue gets fixed quickly.",
-      "Require visibility for every fix: what changed, what was wrong, and whether it is a one off or a pattern.",
-      "Use the system of record, not chat, as the source of truth.",
-      "Slow down just enough to avoid repeating the same issue later."
-    ],
-    notes: [
-      "Try it now is one of the most dangerous phrases in a delivery cycle.",
-      "Early warning sign: fixes happening in chat instead of in the system.",
-      "Recurring issues are rarely new problems. They are old problems that were never documented."
+    content: "If the fix is not tracked, explained, and documented, it is not a fix."
+  },
+  {
+    slug: "full-steam",
+    title: "Full Steam",
+    content: "If transition is based on a date instead of readiness, it will fail."
+  }
+];
+
+function getRoute() {
+  return window.location.hash.replace("#", "") || "/";
+}
+
+function renderHome() {
+  return `
+    <h1>Lessons from the field.</h1>
+    <p>Life outside the work.</p>
+
+    <div class="photo-grid">
+      <div class="photo">Records</div>
+      <div class="photo">Travel</div>
+      <div class="photo">Golf</div>
+      <div class="photo">Life</div>
+    </div>
+
+    <a class="button" href="#/articles">Read Articles</a>
+  `;
+}
+
+function renderArticles() {
+  return `
+    <h1>Articles</h1>
+    ${articles.map(a => `
+      <div class="card">
+        <h3>${a.title}</h3>
+        <a href="#/article/${a.slug}">Read</a>
+      </div>
+    `).join("")}
+  `;
+}
+
+function renderArticle(slug) {
+  const a = articles.find(x => x.slug === slug);
+  return `
+    <a href="#/articles">← Back</a>
+    <h1>${a.title}</h1>
+    <p>${a.content}</p>
+  `;
+}
+
+function renderAbout() {
+  return `
+    <h1>About</h1>
+    <p>I work at the intersection of operations, technology, and execution.</p>
+    <p>Outside of work: records, travel, golf, outdoors.</p>
+  `;
+}
+
+function renderContact() {
+  return `
+    <h1>Contact</h1>
+    <p>Email: hello@mcupman.com</p>
+  `;
+}
+
+function router() {
+  const route = getRoute();
+  const app = document.getElementById("app");
+
+  if (route === "/") {
+    app.innerHTML = renderHome();
+  } else if (route === "/articles") {
+    app.innerHTML = renderArticles();
+  } else if (route.startsWith("/article/")) {
+    app.innerHTML = renderArticle(route.split("/")[2]);
+  } else if (route === "/about") {
+    app.innerHTML = renderAbout();
+  } else if (route === "/contact") {
+    app.innerHTML = renderContact();
+  }
+}
+
+window.addEventListener("hashchange", router);
+router();      "Recurring issues are rarely new problems. They are old problems that were never documented."
     ],
     takeaway:
       "If the fix is not tracked, explained, and documented, it is not a fix. It is a temporary reset waiting to fail again."
