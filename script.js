@@ -65,6 +65,99 @@ const ARTICLES = {
       <h2>Field Notes</h2>
       <p>Burnout rarely begins with a dramatic moment. More often, it starts with a slow disconnect between effort and meaning. Good leaders learn to notice the quieter signals early.</p>
     `
+  },
+
+  ownership: {
+    slug: "ownership",
+    category: "Leadership",
+    readTime: "4 min read",
+    title: "Ownership Is Not the Same as Doing Everything",
+    intro: "Strong ownership does not mean carrying every problem alone.",
+    takeaway:
+      "Ownership means driving the outcome, not becoming the bottleneck.",
+    featured: false,
+    body: `
+      <p>Ownership is one of those words people like to use because it sounds strong, clear, and responsible. But in practice, it gets misunderstood all the time.</p>
+      <p>Some people hear ownership and think it means doing everything themselves. Taking every action. Responding to every question. Carrying the entire problem until it is resolved.</p>
+      <p>That is not ownership. That is overload with a better label.</p>
+
+      <h2>What ownership actually means</h2>
+      <p>Real ownership means the outcome has a clear home. Someone is accountable for direction, follow through, escalation, and closure. That person may not do every task, but they make sure the work moves and the gaps do not stay hidden.</p>
+      <p>Ownership creates clarity. Everyone knows who is tracking the issue, who is coordinating the next move, and who will speak if progress stalls.</p>
+
+      <h2>Where teams get stuck</h2>
+      <p>Teams struggle when ownership gets confused with heroics. One person starts picking up every loose end. They answer every message, attend every meeting, and chase every dependency. At first it looks helpful. Over time it creates fragility.</p>
+      <p>The team begins to rely on one person instead of a process. Decision making slows because everything routes through the same person. The result is not better control. It is a hidden bottleneck.</p>
+
+      <h2>How to lead with ownership</h2>
+      <p>Define who owns the outcome. Clarify who supports it. Decide what must be escalated and when. Give people room to execute without giving up accountability.</p>
+      <p>Ownership works best when it is visible, shared correctly, and supported by a system that does not depend on one person holding everything together.</p>
+
+      <h2>Field Notes</h2>
+      <p>The strongest operators are not the ones who carry every problem alone. They are the ones who create enough clarity that the work keeps moving without confusion.</p>
+    `
+  },
+
+  clarity: {
+    slug: "clarity",
+    category: "Execution",
+    readTime: "4 min read",
+    title: "Clarity Solves More Problems Than Speed",
+    intro: "A fast team with low clarity usually just makes mistakes quicker.",
+    takeaway:
+      "When priorities, ownership, and next steps are clear, execution improves naturally.",
+    featured: false,
+    body: `
+      <p>When a team feels pressure, the first instinct is usually to move faster. Respond faster. Meet faster. Push harder. Add urgency to everything.</p>
+      <p>Sometimes speed helps. But in many cases, the real problem is not pace. It is a lack of clarity.</p>
+      <p>If people are unclear on priority, responsibility, or the actual decision being made, moving faster just creates more noise. Work gets repeated. Messages get crossed. Meetings multiply. Everyone stays busy and little gets cleaner.</p>
+
+      <h2>Why clarity matters</h2>
+      <p>Clarity reduces friction. It tells people what matters now, what can wait, who owns what, and what success looks like. It lowers the cost of coordination.</p>
+      <p>Without clarity, even strong teams drift. Good people start solving different versions of the same problem. Progress becomes harder to measure because the target keeps moving.</p>
+
+      <h2>What clarity looks like</h2>
+      <p>Clear priorities. Clear roles. Clear handoffs. Clear decisions written down in a way people can return to later. Not perfect detail. Just enough structure that the team can move without guessing.</p>
+      <p>Clarity is not bureaucracy. It is what allows a team to move with confidence instead of constant interpretation.</p>
+
+      <h2>What leaders should reinforce</h2>
+      <p>Before asking a team to move faster, make sure they understand the actual problem. Confirm what matters most. Narrow the focus. Remove competing signals. State the next step in language that is hard to misunderstand.</p>
+      <p>Speed becomes useful when the direction is stable. Until then, clarity creates more value than pressure.</p>
+
+      <h2>Field Notes</h2>
+      <p>Many execution issues look like pace problems from a distance. Up close, they are often clarity problems that were never cleaned up early enough.</p>
+    `
+  },
+
+  momentum: {
+    slug: "momentum",
+    category: "Execution",
+    readTime: "5 min read",
+    title: "Momentum Comes From Progress You Can See",
+    intro: "Teams stay energized when movement is visible, not when promises are repeated.",
+    takeaway:
+      "Momentum grows when people can see clear progress, even if the progress is incremental.",
+    featured: false,
+    body: `
+      <p>Momentum is often talked about like it is emotional. A feeling. A vibe. Something a team either has or does not have.</p>
+      <p>But in practice, momentum is usually much more concrete. It comes from visible progress.</p>
+      <p>When people can see work moving, decisions getting made, blockers coming down, and outcomes getting closer, energy tends to rise. The team believes effort is leading somewhere. That belief matters.</p>
+
+      <h2>Why momentum fades</h2>
+      <p>Momentum fades when the same issues stay open too long, when priorities keep shifting, or when effort disappears into systems that never seem to close the loop. People begin to feel like movement is happening around them but not through them.</p>
+      <p>That is when teams become flat. They still work, but with less conviction.</p>
+
+      <h2>How to create it</h2>
+      <p>Break large work into visible wins. Show what changed. Confirm what is complete. Make decisions explicit. Celebrate closed loops, not just activity.</p>
+      <p>Momentum does not require dramatic breakthroughs. It often comes from small evidence that the work is advancing in a real way.</p>
+
+      <h2>What leaders miss</h2>
+      <p>Leaders sometimes try to create momentum with messaging alone. More encouragement. More urgency. More reminders about why the work matters. Those things can help, but they do not replace proof.</p>
+      <p>People trust what they can see. A resolved issue, a delivered milestone, a cleaner process, a shorter list of unknowns. Progress creates credibility. Credibility creates energy.</p>
+
+      <h2>Field Notes</h2>
+      <p>Teams do not need constant hype. They need evidence that the work is moving. Once people can see progress, momentum becomes easier to sustain.</p>
+    `
   }
 };
 
