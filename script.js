@@ -130,24 +130,7 @@ function renderHomePage() {
             <a class="btn btn-secondary" href="#/about">About Mike</a>
           </div>
         </div>
-
-        <div class="hero-brand-panel reveal">
-          <div class="hero-brand-top">
-            <div class="hero-brand-large-logo">
-              <img src="images/logo.png" alt="MCUPMAN logo" />
-            </div>
-            <div>
-              <p class="eyebrow">Brand mark</p>
-              <h2>Make the logo part of the site, not an afterthought.</h2>
-            </div>
-          </div>
-          <p class="hero-brand-copy">
-            The identity should feel more like a stamp on a journal than a tiny decorative icon in the corner.
-          </p>
-        </div>
-      </div>
-    </section>
-
+        
     <section class="section photo-strip">
       <div class="container">
         <div class="photo-grid">
