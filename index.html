@@ -13,7 +13,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#/" class="brand">MCUPMAN</a>
+      <a href="#/" class="brand" aria-label="MCUPMAN home">MCUPMAN</a>
 
       <nav class="site-nav" aria-label="Main navigation">
         <a href="#/">Home</a>
@@ -24,8 +24,20 @@
     </div>
   </header>
 
-  <main id="app"></main>
+  <main id="app">
+    <section class="page">
+      <h1>Loading...</h1>
+      <p class="muted">If this page does not load, please make sure JavaScript is enabled and that <strong>script.js</strong> is loading correctly.</p>
+    </section>
+  </main>
 
-  <script src="script.js"></script>
+  <noscript>
+    <section class="page">
+      <h1>JavaScript is required</h1>
+      <p>This site uses JavaScript for page routing. Please enable JavaScript to continue.</p>
+    </section>
+  </noscript>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
