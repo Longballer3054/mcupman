@@ -19,25 +19,29 @@ html {
 
 body {
   margin: 0;
-  background: #0b0b0c;
+  background: var(--bg);
   color: var(--text);
   font-family: Arial, sans-serif;
 }
 
+/* GLOBAL IMAGE CONTROL */
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
+/* LAYOUT */
 .container,
 .page {
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
 }
 
+/* HEADER */
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: #0b0b0c;
+  background: var(--bg);
 }
 
 .header-inner {
@@ -51,10 +55,11 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--text);
   text-decoration: none;
+  color: var(--text);
 }
 
+/* FIXED HEADER LOGO */
 .brand-logo-wrap {
   width: 44px;
   height: 44px;
@@ -75,15 +80,16 @@ img {
   max-width: 28px;
   max-height: 28px;
   object-fit: contain;
-  display: block;
 }
 
+/* BRAND TEXT */
 .brand-name {
   letter-spacing: 0.3em;
   font-size: 0.8rem;
   color: #aaa;
 }
 
+/* NAV */
 .site-nav {
   display: flex;
   gap: 24px;
@@ -98,10 +104,12 @@ img {
   color: #fff;
 }
 
+/* MAIN */
 main {
   padding: 48px 0 80px;
 }
 
+/* TYPOGRAPHY */
 h1 {
   font-size: 48px;
   line-height: 1.05;
@@ -130,6 +138,7 @@ p {
   color: #8a8478;
 }
 
+/* GRID SYSTEM */
 .hero-grid,
 .two-col,
 .cards,
@@ -152,6 +161,7 @@ p {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* PANELS */
 .panel,
 .card,
 .photo,
@@ -162,19 +172,23 @@ p {
   padding: 24px;
 }
 
+/* HERO LOGO FIX */
 .hero-logo-panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 320px;
+  min-height: 300px;
+  overflow: hidden;
 }
 
+/* FIXED LARGE LOGO */
 .logo-large {
-  width: 220px;
-  max-width: 100%;
+  width: 160px;
+  max-width: 160px;
   height: auto;
 }
 
+/* BUTTONS */
 .buttons {
   display: flex;
   gap: 12px;
@@ -200,10 +214,12 @@ p {
   color: #f4efe6;
 }
 
+/* SPACING */
 .spacer {
   height: 40px;
 }
 
+/* PHOTOS */
 .photo {
   padding: 0;
   overflow: hidden;
@@ -211,7 +227,7 @@ p {
 
 .photo img {
   width: 100%;
-  height: 260px;
+  height: 220px;
   object-fit: cover;
 }
 
@@ -219,14 +235,16 @@ p {
   padding: 16px;
 }
 
+/* FOOTER */
 .footer {
   margin-top: 80px;
   padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #9f978a;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-grid,
   .two-col,
@@ -235,11 +253,11 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .site-nav {
-    gap: 16px;
+  h1 {
+    font-size: 36px;
   }
 
-  h1 {
-    font-size: 38px;
+  .site-nav {
+    gap: 16px;
   }
 }
