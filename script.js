@@ -27,22 +27,22 @@ const articles = {
 };
 
 /**
- * UTILS & ROUTING
+ * ROUTING UTILS
  */
 
 function getRoute() {
-  // Returns path like "/about" or "/article/meeting"
   const hash = window.location.hash || "#/";
+  // Returns something like "/" or "/about" or "/article/meeting"
   return hash.replace(/^#/, "") || "/";
 }
 
 function setActiveNav(route) {
   document.querySelectorAll(".site-nav a").forEach((link) => {
     link.classList.remove("active");
-    // Normalize href for comparison (remove #)
     const href = link.getAttribute("href").replace(/^#/, "") || "/";
 
-    const isHome = (href === "/" && route === "/");
+    // Logic to highlight "Articles" even when viewing a specific article
+    const isHome = (href === "/" && (route === "/" || route === ""));
     const isExact = (href === route);
     const isArticleParent = (href === "/articles" && route.startsWith("/article/"));
 
@@ -80,29 +80,25 @@ function homePage() {
           </div>
         </div>
         <div class="panel hero-logo-panel">
-          <img src="images/logo.png" alt="MCUPMAN logo" class="logo-large" onerror="this.style.display='none'"/>
+          <img src="images/logo.png" alt="MCUPMAN logo" class="logo-large" />
         </div>
       </div>
-
       <div class="spacer"></div>
-
       <div class="photo-grid">
         <div class="photo">
-          <img src="images/records.jpg" alt="Records" onerror="this.style.backgroundColor='#eee'"/>
+          <img src="images/records.jpg" alt="Records" />
           <div class="caption"><strong>Records</strong><p>Slow it down and let the noise fall off.</p></div>
         </div>
         <div class="photo">
-          <img src="images/travel.jpg" alt="Travel" onerror="this.style.backgroundColor='#eee'"/>
+          <img src="images/travel.jpg" alt="Travel" />
           <div class="caption"><strong>Travel</strong><p>New places and better stories.</p></div>
         </div>
         <div class="photo">
-          <img src="images/outdoors.jpg" alt="Outdoors" onerror="this.style.backgroundColor='#eee'"/>
+          <img src="images/outdoors.jpg" alt="Outdoors" />
           <div class="caption"><strong>Outdoors</strong><p>Golf, hiking, and outside air.</p></div>
         </div>
       </div>
-
       <div class="spacer"></div>
-
       <h2>Featured article</h2>
       <div class="cards">
         <div class="card">
@@ -120,7 +116,7 @@ function homePage() {
 }
 
 function articlesPage() {
-  const articleCards = Object.values(articles).map(art => `
+  const cards = Object.values(articles).map(art => `
     <div class="card">
       <strong>${art.title}</strong>
       <p>${art.takeaway}</p>
@@ -134,7 +130,7 @@ function articlesPage() {
   return `
     <div class="page">
       <h1>Articles</h1>
-      <div class="cards">${articleCards}</div>
+      <div class="cards">${cards}</div>
       ${footer()}
     </div>
   `;
@@ -142,31 +138,21 @@ function articlesPage() {
 
 function articlePage(slug) {
   const article = articles[slug];
-
   if (!article) {
-    return `
-      <div class="page">
-        <h1>Article not found</h1>
-        <div class="buttons">
-          <a class="btn btn-primary" href="#/articles">Back to Articles</a>
-        </div>
-        ${footer()}
-      </div>
-    `;
+    return `<div class="page"><h1>Article not found</h1><a href="#/articles">Back</a></div>`;
   }
 
   return `
-    <div class="page article-view">
+    <div class="page">
       <p class="eyebrow">${article.category}</p>
       <h1>${article.title}</h1>
-      <p class="muted">${article.readTime}</p>
       <div class="buttons">
         <a class="btn btn-secondary" href="#/articles">← Back to Articles</a>
       </div>
       <div class="spacer"></div>
-      <div class="article-content card">
+      <div class="card">
         ${article.body}
-        <hr>
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 40px 0;">
         <p><strong>One line takeaway:</strong> ${article.takeaway}</p>
       </div>
       ${footer()}
@@ -183,7 +169,7 @@ function aboutPage() {
           <h1>Operator by trade.<br><span class="muted">Human outside of it.</span></h1>
         </div>
         <div>
-          <p>I work at the intersection of operations, technology, and execution, helping companies turn complex ideas into systems that actually function.</p>
+          <p>I work at the intersection of operations, technology, and execution, helping companies turn complex ideas into systems that actually function in the real world.</p>
           <p>Outside of work, I like to slow things down. Records, travel, a drink at the end of the day, golf, and hiking.</p>
         </div>
       </div>
@@ -198,7 +184,6 @@ function contactPage() {
       <div class="contact-box">
         <p class="eyebrow">Contact</p>
         <h1>Say hello or send a story.</h1>
-        <p>Reach out at the link below.</p>
         <div class="buttons">
           <a class="btn btn-primary" href="mailto:hello@mcupman.com">Email Mike</a>
         </div>
@@ -209,7 +194,7 @@ function contactPage() {
 }
 
 /**
- * CORE ROUTER
+ * THE ROUTER ENGINE
  */
 
 function router() {
@@ -217,7 +202,6 @@ function router() {
   const app = document.getElementById("app");
   if (!app) return;
 
-  // Scroll to top on route change
   window.scrollTo(0, 0);
 
   if (route === "/" || route === "") {
@@ -225,19 +209,20 @@ function router() {
   } else if (route === "/articles") {
     app.innerHTML = articlesPage();
   } else if (route.startsWith("/article/")) {
-    const slug = route.split("/")[2];
+    // FIX: Extract the slug properly from "/article/meeting"
+    const slug = route.split("/")[2]; 
     app.innerHTML = articlePage(slug);
   } else if (route === "/about") {
     app.innerHTML = aboutPage();
   } else if (route === "/contact") {
     app.innerHTML = contactPage();
   } else {
-    app.innerHTML = homePage();
+    app.innerHTML = homePage(); // Fallback to home
   }
 
   setActiveNav(route);
 }
 
-// Listen for hash changes and initial load
+// Event Listeners
 window.addEventListener("hashchange", router);
 window.addEventListener("DOMContentLoaded", router);
