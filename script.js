@@ -32,10 +32,10 @@ const ARTICLES = {
 
       <h2>Field Notes</h2>
       <p>This pattern shows up when visibility is mistaken for progress. Meetings without ownership do not fail loudly. They fail quietly by consuming time and producing nothing.</p>
- 
- },
- 
-   burnout: {
+    `
+  },
+
+  burnout: {
     slug: "burnout",
     category: "Leadership",
     readTime: "5 min read",
@@ -49,22 +49,22 @@ const ARTICLES = {
       <p>But that is not always how it starts. In many cases, burnout arrives much earlier and much quieter.</p>
       <p>It can look like someone still doing the work, still showing up to meetings, still answering messages, still hitting deadlines. From the outside, everything may appear fine.</p>
       <p>But inside, something has shifted. The energy is flatter. The patience is thinner. The pride in the work starts to fade. What once felt engaging now feels heavy.</p>
-  
+
       <h2>Why it gets missed</h2>
       <p>Burnout is often missed because responsibility can mask it. High performers are especially good at carrying too much for too long. They know how to compensate. They know how to keep things moving. They know how to avoid becoming the problem.</p>
       <p>That is exactly why leaders need to pay attention before the obvious signals appear. By the time quality drops or a person disengages publicly, the problem has usually been building for a while.</p>
-  
+
       <h2>What it often looks like first</h2>
       <p>It looks like shorter answers. Less curiosity. Less follow through on things that used to matter deeply. It can show up as frustration, detachment, or just a steady loss of sharpness.</p>
       <p>It is not always about workload alone. Burnout can come from unclear priorities, constant context switching, low trust, repeated rework, or the feeling that effort is no longer connected to meaningful progress.</p>
-  
+
       <h2>What leaders should do</h2>
       <p>Do not wait for collapse. Create room for honest conversations before things get critical. Clarify priorities. Remove unnecessary noise. Help people understand what matters now and what can wait.</p>
       <p>And most importantly, do not confuse availability with capacity. Just because someone keeps delivering does not mean the current pace is sustainable.</p>
-  
+
       <h2>Field Notes</h2>
       <p>Burnout rarely begins with a dramatic moment. More often, it starts with a slow disconnect between effort and meaning. Good leaders learn to notice the quieter signals early.</p>
-  
+    `
   }
 };
 
