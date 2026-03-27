@@ -59,6 +59,7 @@ img {
   width: 44px;
   height: 44px;
   min-width: 44px;
+  max-width: 44px;
   border-radius: 12px;
   border: 1px solid var(--border);
   overflow: hidden;
@@ -69,9 +70,12 @@ img {
 }
 
 .brand-logo {
-  width: 80%;
-  height: 80%;
+  width: 28px;
+  height: 28px;
+  max-width: 28px;
+  max-height: 28px;
   object-fit: contain;
+  display: block;
 }
 
 .brand-name {
