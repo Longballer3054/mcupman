@@ -8,8 +8,6 @@
     name="description"
     content="MCUPMAN. Lessons from the field, life outside the work, and a mix of articles, photos, and perspective."
   />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
@@ -17,32 +15,30 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="#/" class="brand" aria-label="Go to homepage">
-          <div class="brand-logo-wrap">
-            <img src="images/logo.png" alt="MCUPMAN logo" class="brand-logo" />
-          </div>
-          <div class="brand-name">MCUPMAN</div>
-        </a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#/" class="brand">
+        <div class="brand-logo-wrap">
+          <img src="images/logo.png" alt="MCUPMAN logo" class="brand-logo" />
+        </div>
+        <div class="brand-name">MCUPMAN</div>
+      </a>
 
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="#/">Home</a>
-          <a href="#/articles">Articles</a>
-          <a href="#/about">About</a>
-          <a href="#/contact">Contact</a>
-        </nav>
-      </div>
-    </header>
+      <nav class="site-nav">
+        <a href="#/">Home</a>
+        <a href="#/articles">Articles</a>
+        <a href="#/about">About</a>
+        <a href="#/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main id="app"></main>
-  </div>
+  <main id="app"></main>
 
-  <div id="article-modal" class="modal hidden" aria-hidden="true">
-    <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="article-title">
-      <button class="modal-close" id="modal-close" aria-label="Close article">×</button>
+  <div id="article-modal" class="modal hidden">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="modal-panel">
+      <button id="modal-close" class="modal-close" aria-label="Close article">×</button>
       <div id="modal-content"></div>
     </div>
   </div>
