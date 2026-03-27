@@ -241,5 +241,15 @@ function router() {
   setActiveNav(route);
 }
 
+function renderFooter() {
+  return `
+    <footer style="margin-top:80px; padding:40px 0; border-top:1px solid rgba(255,255,255,0.1); text-align:center;">
+      <p style="color:#9f978a; font-size:0.85rem; letter-spacing:0.08em;">
+        © 2026 MCUPMAN. Built on lessons from the field.
+      </p>
+    </footer>
+  `;
+}
+
 window.addEventListener("hashchange", router);
 window.addEventListener("DOMContentLoaded", router);
