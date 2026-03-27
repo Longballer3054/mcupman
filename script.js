@@ -1,3 +1,34 @@
+const articles = {
+  meeting: {
+    slug: "meeting",
+    category: "Leadership",
+    readTime: "4 min read",
+    title: "The Meeting That Should Have Been an Email",
+    intro: "It started like most bad meetings do. No agenda. Too many people.",
+    takeaway: "If a meeting has no owner and no defined outcome, it is delay with calendar invites.",
+    body: `
+      <p>It started like most bad meetings do. No agenda. Too many people. Just enough urgency to make everyone believe it had to happen.</p>
+
+      <p>The invite said quick sync, which is usually the first sign something is about to take longer than it should and accomplish less than expected.</p>
+
+      <p>By minute ten, the updates began. Not decisions. Not alignment. Just updates.</p>
+
+      <p>By minute twenty, the conversation drifted. Someone raised a new concern. Another added context. Another tried to connect it to something from last week that nobody fully remembered.</p>
+
+      <p>By minute thirty, the room was active. It felt productive. It was not.</p>
+
+      <h2>What went wrong</h2>
+      <p>No one owned the meeting in a real sense. There was no defined purpose. Too many perspectives without structure created noise instead of clarity. The meeting existed because writing felt harder.</p>
+
+      <h2>What could have been done differently</h2>
+      <p>Start with the outcome before the meeting is even scheduled. Reduce the room to only the people required to decide, approve, or execute. Send context ahead of time so the meeting can be used for direction, not discovery. If it can be written clearly, it should not be a meeting.</p>
+
+      <h2>Field Notes</h2>
+      <p>This pattern shows up when visibility is mistaken for progress. Meetings without ownership do not fail loudly. They fail quietly by consuming time and producing nothing.</p>
+    `
+  }
+};
+
 function getRoute() {
   const hash = window.location.hash || "#/";
   return hash.replace("#", "");
@@ -7,7 +38,12 @@ function setActiveNav(route) {
   document.querySelectorAll(".site-nav a").forEach((link) => {
     link.classList.remove("active");
     const href = link.getAttribute("href").replace("#", "");
-    if (href === route || (href === "/" && (route === "/" || route === ""))) {
+
+    if (
+      href === route ||
+      (href === "/" && (route === "/" || route === "")) ||
+      (href === "/articles" && route.startsWith("/article/"))
+    ) {
       link.classList.add("active");
     }
   });
@@ -47,22 +83,155 @@ function homePage() {
       <div class="photo-grid">
         <div class="photo">
           <img src="images/records.jpg" alt="Records" />
-          <div class="caption">
-            <strong>Records</strong>
-            <p>Slow it down and let the noise fall off for a minute.</p>
-          </div>
+          <div class="caption"><strong>Records</strong><p>Slow it down and let the noise fall off for a minute.</p></div>
         </div>
-
         <div class="photo">
           <img src="images/travel.jpg" alt="Travel" />
-          <div class="caption">
-            <strong>Travel</strong>
-            <p>New places and better stories.</p>
-          </div>
+          <div class="caption"><strong>Travel</strong><p>New places and better stories.</p></div>
         </div>
-
         <div class="photo">
           <img src="images/outdoors.jpg" alt="Outdoors" />
+          <div class="caption"><strong>Outdoors</strong><p>Golf, hiking, and outside air.</p></div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <h2>Featured article</h2>
+      <div class="cards">
+        <div class="card">
+          <strong>${articles.meeting.title}</strong>
+          <p>${articles.meeting.intro}</p>
+          <p>${articles.meeting.readTime}</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#/article/meeting">Read Article</a>
+          </div>
+        </div>
+      </div>
+
+      ${footer()}
+    </div>
+  `;
+}
+
+function articlesPage() {
+  return `
+    <div class="page">
+      <h1>Articles</h1>
+      <div class="cards">
+        <div class="card">
+          <strong>${articles.meeting.title}</strong>
+          <p>${articles.meeting.takeaway}</p>
+          <p>${articles.meeting.readTime}</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#/article/meeting">Read Article</a>
+          </div>
+        </div>
+      </div>
+      ${footer()}
+    </div>
+  `;
+}
+
+function articlePage(slug) {
+  const article = articles[slug];
+
+  if (!article) {
+    return `
+      <div class="page">
+        <h1>Article not found</h1>
+        <p>The article you selected does not exist.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#/articles">Back to Articles</a>
+        </div>
+        ${footer()}
+      </div>
+    `;
+  }
+
+  return `
+    <div class="page">
+      <p class="eyebrow">${article.category}</p>
+      <h1>${article.title}</h1>
+      <p>${article.readTime}</p>
+      <div class="buttons">
+        <a class="btn btn-secondary" href="#/articles">Back to Articles</a>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="card">
+        ${article.body}
+        <div class="spacer"></div>
+        <p><strong>One line takeaway:</strong> ${article.takeaway}</p>
+      </div>
+
+      ${footer()}
+    </div>
+  `;
+}
+
+function aboutPage() {
+  return `
+    <div class="page">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">About</p>
+          <h1>Operator by trade.<br><span class="muted">Human outside of it.</span></h1>
+        </div>
+        <div>
+          <p>I work at the intersection of operations, technology, and execution, helping companies turn complex ideas into systems that actually function in the real world.</p>
+          <p>Outside of work, I like to slow things down. Records, travel, a drink at the end of the day, golf, hiking, and the parts of life that matter more than another calendar invite.</p>
+          <p>This site is where those two sides meet.</p>
+        </div>
+      </div>
+      ${footer()}
+    </div>
+  `;
+}
+
+function contactPage() {
+  return `
+    <div class="page">
+      <div class="contact-box">
+        <p class="eyebrow">Contact</p>
+        <h1>Say hello or send a story.</h1>
+        <p>Have an idea, a question, or something worth sharing? Reach out.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="mailto:hello@mcupman.com">Email Mike</a>
+          <a class="btn btn-secondary" href="#/articles">Read Articles</a>
+        </div>
+      </div>
+      ${footer()}
+    </div>
+  `;
+}
+
+function router() {
+  const route = getRoute();
+  const app = document.getElementById("app");
+  if (!app) return;
+
+  if (route === "/" || route === "") {
+    app.innerHTML = homePage();
+  } else if (route === "/articles") {
+    app.innerHTML = articlesPage();
+  } else if (route.startsWith("/article/")) {
+    const slug = route.split("/")[2];
+    app.innerHTML = articlePage(slug);
+  } else if (route === "/about") {
+    app.innerHTML = aboutPage();
+  } else if (route === "/contact") {
+    app.innerHTML = contactPage();
+  } else {
+    app.innerHTML = homePage();
+  }
+
+  setActiveNav(route);
+}
+
+window.addEventListener("hashchange", router);
+window.addEventListener("DOMContentLoaded", router);          <img src="images/outdoors.jpg" alt="Outdoors" />
           <div class="caption">
             <strong>Outdoors</strong>
             <p>Golf, hiking, and outside air.</p>
