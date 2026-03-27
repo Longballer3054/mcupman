@@ -32,9 +32,9 @@ const ARTICLES = {
 
       <h2>Field Notes</h2>
       <p>This pattern shows up when visibility is mistaken for progress. Meetings without ownership do not fail loudly. They fail quietly by consuming time and producing nothing.</p>
- }
+ },
  
-  burnout: {
+   burnout: {
     slug: "burnout",
     category: "Leadership",
     readTime: "5 min read",
@@ -63,8 +63,6 @@ const ARTICLES = {
   
       <h2>Field Notes</h2>
       <p>Burnout rarely begins with a dramatic moment. More often, it starts with a slow disconnect between effort and meaning. Good leaders learn to notice the quieter signals early.</p>
-  `
-}
   }
 };
 
