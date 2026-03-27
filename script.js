@@ -158,6 +158,37 @@ const ARTICLES = {
       <h2>Field Notes</h2>
       <p>Teams do not need constant hype. They need evidence that the work is moving. Once people can see progress, momentum becomes easier to sustain.</p>
     `
+  },
+
+  tryItNow: {
+    slug: "try-it-now",
+    category: "Execution",
+    readTime: "4 min read",
+    title: "TRY IT NOW",
+    intro: "Sometimes the fastest way to build confidence is to stop circling the idea and test it in the real world.",
+    takeaway:
+      "Progress often starts when talk gives way to action and the team learns from something real.",
+    featured: false,
+    body: `
+      <p>There is a point in almost every project where the conversation starts to loop. The same concerns come up. The same questions get asked. The same possibilities are discussed from slightly different angles.</p>
+      <p>At that stage, more discussion does not always create more clarity. Sometimes the next best step is simple. Try it now.</p>
+      <p>That does not mean being careless. It means moving from theory to evidence. It means putting a version of the idea in motion so the team can react to something real instead of debating something abstract.</p>
+
+      <h2>Why this matters</h2>
+      <p>Teams can lose a lot of time waiting for certainty that never comes. They want every answer before taking the first step. They want every edge case solved before testing the core idea.</p>
+      <p>But real progress usually comes from interaction. A small pilot. A quick proof point. A limited release. A visible attempt that shows what works, what breaks, and what needs to change.</p>
+
+      <h2>What TRY IT NOW really means</h2>
+      <p>It means reducing the distance between idea and learning. It means choosing movement over endless review. It means understanding that action, when scoped correctly, can reveal more than another round of discussion.</p>
+      <p>The key is discipline. Keep the test focused. Know what you are trying to learn. Make sure the risk is understood. Then move.</p>
+
+      <h2>Where teams get stuck</h2>
+      <p>They get stuck when caution becomes culture. When every next step requires too much alignment. When people are more comfortable sounding thoughtful than being exposed to a real result.</p>
+      <p>That kind of environment creates delay disguised as diligence. Work feels active, but nothing meaningful changes.</p>
+
+      <h2>Field Notes</h2>
+      <p>TRY IT NOW is not about reckless action. It is about respecting the value of learning quickly. In the right moment, a small real step is worth more than another week of hypotheticals.</p>
+    `
   }
 };
 
