@@ -283,6 +283,12 @@ function renderAboutPage() {
       </div>
     </section>
 
+<div class="hero-brand-panel reveal">
+  <div class="hero-brand-center">
+    <img src="images/logo.png" alt="MCUPMAN logo" class="hero-logo-main" />
+  </div>
+</div>
+
     <section class="section photo-strip">
       <div class="container">
         <div class="photo-grid">
