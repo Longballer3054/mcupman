@@ -1,263 +1,250 @@
-* {
-  box-sizing: border-box;
+/**
+ * MCUPMAN - Website Router & Content Script
+ */
+
+const articles = {
+  meeting: {
+    slug: "meeting",
+    category: "Leadership",
+    readTime: "4 min read",
+    title: "The Meeting That Should Have Been an Email",
+    intro: "It started like most bad meetings do. No agenda. Too many people.",
+    takeaway: "If a meeting has no owner and no defined outcome, it is delay with calendar invites.",
+    body: `
+      <p>It started like most bad meetings do. No agenda. Too many people. Just enough urgency to make everyone believe it had to happen.</p>
+      <p>The invite said quick sync, which is usually the first sign something is about to take longer than it should and accomplish less than expected.</p>
+      <p>By minute ten, the updates began. Not decisions. Not alignment. Just updates.</p>
+      <p>By minute twenty, the conversation drifted. Someone raised a new concern. Another added context. Another tried to connect it to something from last week that nobody fully remembered.</p>
+      <p>By minute thirty, the room was active. It felt productive. It was not.</p>
+      <h2>What went wrong</h2>
+      <p>No one owned the meeting in a real sense. There was no defined purpose. Too many perspectives without structure created noise instead of clarity. The meeting existed because writing felt harder.</p>
+      <h2>What could have been done differently</h2>
+      <p>Start with the outcome before the meeting is even scheduled. Reduce the room to only the people required to decide, approve, or execute. Send context ahead of time so the meeting can be used for direction, not discovery. If it can be written clearly, it should not be a meeting.</p>
+      <h2>Field Notes</h2>
+      <p>This pattern shows up when visibility is mistaken for progress. Meetings without ownership do not fail loudly. They fail quietly by consuming time and producing nothing.</p>
+    `
+  }
+};
+
+/**
+ * UTILS & ROUTING
+ */
+
+function getRoute() {
+  const hash = window.location.hash || "#/";
+  return hash.replace(/^#/, "") || "/";
 }
 
-:root {
-  --bg: #0b0b0c;
-  --panel: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.1);
-  --text: #f4efe6;
-  --text-soft: #c8c1b5;
-  --text-muted: #9f978a;
-  --max: 1100px;
-  --radius: 18px;
+function setActiveNav(route) {
+  document.querySelectorAll(".site-nav a").forEach((link) => {
+    link.classList.remove("active");
+    const href = link.getAttribute("href").replace(/^#/, "") || "/";
+
+    const isHome = (href === "/" && route === "/");
+    const isExact = (href === route);
+    const isArticleParent = (href === "/articles" && route.startsWith("/article/"));
+
+    if (isHome || isExact || isArticleParent) {
+      link.classList.add("active");
+    }
+  });
 }
 
-html {
-  scroll-behavior: smooth;
+function footer() {
+  return `
+    <div class="footer">
+      &copy; ${new Date().getFullYear()} MCUPMAN. Built on lessons from the field.
+    </div>
+  `;
 }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
+/**
+ * PAGE TEMPLATES
+ */
+
+function homePage() {
+  return `
+    <div class="page">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">MCUPMAN • personal and professional</p>
+          <h1>Lessons from the field.<br><span class="muted">Life outside the work.</span></h1>
+          <p class="hero-subhead">
+            A 50/50 mix of execution lessons, personal perspective, records, travel, outdoor moments, and the stories that shape how I think about work and life.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#/articles">Read Articles</a>
+            <a class="btn btn-secondary" href="#/about">About Mike</a>
+          </div>
+        </div>
+
+        <div class="panel hero-logo-panel">
+          <img src="images/logo.png" alt="MCUPMAN logo" class="logo-large" />
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="photo-grid">
+        <div class="photo">
+          <img src="images/records.jpg" alt="Records" />
+          <div class="caption"><strong>Records</strong><p>Slow it down and let the noise fall off.</p></div>
+        </div>
+        <div class="photo">
+          <img src="images/travel.jpg" alt="Travel" />
+          <div class="caption"><strong>Travel</strong><p>New places and better stories.</p></div>
+        </div>
+        <div class="photo">
+          <img src="images/outdoors.jpg" alt="Outdoors" />
+          <div class="caption"><strong>Outdoors</strong><p>Golf, hiking, and outside air.</p></div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <h2>Featured article</h2>
+      <div class="cards">
+        <div class="card">
+          <strong>${articles.meeting.title}</strong>
+          <p>${articles.meeting.intro}</p>
+          <p class="muted">${articles.meeting.readTime}</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#/article/meeting">Read Article</a>
+          </div>
+        </div>
+      </div>
+
+      ${footer()}
+    </div>
+  `;
 }
 
-/* GLOBAL IMAGE CONTROL */
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+function articlesPage() {
+  const articleCards = Object.values(articles).map(art => `
+    <div class="card">
+      <strong>${art.title}</strong>
+      <p>${art.takeaway}</p>
+      <p class="muted">${art.readTime}</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#/article/${art.slug}">Read Article</a>
+      </div>
+    </div>
+  `).join('');
+
+  return `
+    <div class="page">
+      <h1>Articles</h1>
+      <div class="cards">${articleCards}</div>
+      ${footer()}
+    </div>
+  `;
 }
 
-/* LAYOUT */
-.container,
-.page {
-  width: min(var(--max), calc(100% - 40px));
-  margin: 0 auto;
-}
+function articlePage(slug) {
+  const article = articles[slug];
 
-/* HEADER */
-.site-header {
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-}
-
-.header-inner {
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--text);
-}
-
-/* FIXED HEADER LOGO */
-.brand-logo-wrap {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  max-width: 44px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.brand-logo {
-  width: 28px;
-  height: 28px;
-  max-width: 28px;
-  max-height: 28px;
-  object-fit: contain;
-}
-
-/* BRAND TEXT */
-.brand-name {
-  letter-spacing: 0.3em;
-  font-size: 0.8rem;
-  color: #aaa;
-}
-
-/* NAV */
-.site-nav {
-  display: flex;
-  gap: 24px;
-}
-
-.site-nav a {
-  color: #ddd;
-  text-decoration: none;
-}
-
-.site-nav a.active {
-  color: #fff;
-}
-
-/* MAIN */
-main {
-  padding: 48px 0 80px;
-}
-
-/* TYPOGRAPHY */
-h1 {
-  font-size: 48px;
-  line-height: 1.05;
-  margin: 0 0 20px;
-}
-
-h2 {
-  font-size: 32px;
-  margin: 0 0 20px;
-}
-
-p {
-  color: var(--text-soft);
-  line-height: 1.8;
-}
-
-.eyebrow {
-  color: var(--text-muted);
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  margin: 0 0 16px;
-}
-
-.muted {
-  color: #8a8478;
-}
-
-/* GRID SYSTEM */
-.hero-grid,
-.two-col,
-.cards,
-.photo-grid {
-  display: grid;
-  gap: 24px;
-}
-
-.hero-grid {
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: center;
-}
-
-.two-col {
-  grid-template-columns: 0.9fr 1.1fr;
-}
-
-.cards,
-.photo-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-/* PANELS */
-.panel,
-.card,
-.photo,
-.contact-box {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--panel);
-  padding: 24px;
-}
-
-/* HERO LOGO FIX */
-.hero-logo-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  overflow: hidden;
-}
-
-/* FIXED LARGE LOGO */
-.logo-large {
-  width: 160px;
-  max-width: 160px;
-  height: auto;
-}
-
-/* BUTTONS */
-.buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn-primary {
-  background: #f4efe6;
-  color: #111;
-}
-
-.btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #f4efe6;
-}
-
-/* SPACING */
-.spacer {
-  height: 40px;
-}
-
-/* PHOTOS */
-.photo {
-  padding: 0;
-  overflow: hidden;
-}
-
-.photo img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-
-.photo .caption {
-  padding: 16px;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: 80px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero-grid,
-  .two-col,
-  .cards,
-  .photo-grid {
-    grid-template-columns: 1fr;
+  if (!article) {
+    return `
+      <div class="page">
+        <h1>Article not found</h1>
+        <p>The article you selected does not exist.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="#/articles">Back to Articles</a>
+        </div>
+        ${footer()}
+      </div>
+    `;
   }
 
-  h1 {
-    font-size: 36px;
+  return `
+    <div class="page">
+      <p class="eyebrow">${article.category}</p>
+      <h1>${article.title}</h1>
+      <p class="muted">${article.readTime}</p>
+      <div class="buttons">
+        <a class="btn btn-secondary" href="#/articles">Back to Articles</a>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="card article-content">
+        ${article.body}
+        <div class="spacer"></div>
+        <p><strong>One line takeaway:</strong> ${article.takeaway}</p>
+      </div>
+
+      ${footer()}
+    </div>
+  `;
+}
+
+function aboutPage() {
+  return `
+    <div class="page">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">About</p>
+          <h1>Operator by trade.<br><span class="muted">Human outside of it.</span></h1>
+        </div>
+        <div>
+          <p>I work at the intersection of operations, technology, and execution, helping companies turn complex ideas into systems that actually function in the real world.</p>
+          <p>Outside of work, I like to slow things down. Records, travel, a drink at the end of the day, golf, hiking, and the parts of life that matter more than another calendar invite.</p>
+          <p>This site is where those two sides meet.</p>
+        </div>
+      </div>
+      ${footer()}
+    </div>
+  `;
+}
+
+function contactPage() {
+  return `
+    <div class="page">
+      <div class="contact-box">
+        <p class="eyebrow">Contact</p>
+        <h1>Say hello or send a story.</h1>
+        <p>Have an idea, a question, or something worth sharing? Reach out.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="mailto:hello@mcupman.com">Email Mike</a>
+          <a class="btn btn-secondary" href="#/articles">Read Articles</a>
+        </div>
+      </div>
+      ${footer()}
+    </div>
+  `;
+}
+
+/**
+ * CORE ROUTER
+ */
+
+function router() {
+  const route = getRoute();
+  const app = document.getElementById("app");
+  if (!app) return;
+
+  // Reset scroll
+  window.scrollTo(0, 0);
+
+  if (route === "/" || route === "") {
+    app.innerHTML = homePage();
+  } else if (route === "/articles") {
+    app.innerHTML = articlesPage();
+  } else if (route.startsWith("/article/")) {
+    // FIX: split properly and get the third element (index 2)
+    const segments = route.split("/");
+    const slug = segments[2]; 
+    app.innerHTML = articlePage(slug);
+  } else if (route === "/about") {
+    app.innerHTML = aboutPage();
+  } else if (route === "/contact") {
+    app.innerHTML = contactPage();
+  } else {
+    app.innerHTML = homePage();
   }
 
-  .site-nav {
-    gap: 16px;
-  }
+  setActiveNav(route);
 }
+
+window.addEventListener("hashchange", router);
+window.addEventListener("DOMContentLoaded", router);
